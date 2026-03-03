@@ -10,22 +10,25 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-{
-    Schema::create('m_supplier', function (Blueprint $table) {
-    $table->id('supplier_id');
-    $table->string('supplier_kode')->unique();
-    $table->string('supplier_nama');
-    $table->string('supplier_alamat');
-    $table->string('supplier_telp');
+    {
+    Schema::create('t_penjualan', function (Blueprint $table) {
+    $table->id('penjualan_id');
+    $table->unsignedBigInteger('user_id');
+    $table->date('tanggal');
+    $table->integer('total_harga');
     $table->timestamps();
+
+    $table->foreign('user_id')
+          ->references('user_id')
+          ->on('m_user');
 });
-}
+    }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('m_supplier');
+        Schema::dropIfExists('t_penjualan');
     }
 };
