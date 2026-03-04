@@ -9,3 +9,4 @@ Route::get('/', function () {
 use App\Http\Controllers\LevelController;
 
 Route::get('/level', [LevelController::class, 'index']);
+
