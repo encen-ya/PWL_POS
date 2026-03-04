@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\DB;
 class KategoriSeeder extends Seeder {
    public function run(): void {
     $data = [
-        ['kategori_id' => 1, 'kategori_kode' => 'MKN', 'kategori_nama' => 'Makanan'],
-        ['kategori_id' => 2, 'kategori_kode' => 'MNM', 'kategori_nama' => 'Minuman'],
-        ['kategori_id' => 3, 'kategori_kode' => 'KSH', 'kategori_nama' => 'Kesehatan'],
+        ['kategori_kode' => 'CPN', 'kategori_nama' => 'Coupon'],
+        ['kategori_kode' => 'FNB', 'kategori_nama' => 'Food & Beverage'],
+        ['kategori_kode' => 'MCH', 'kategori_nama' => 'Merchandise'],
+        ['kategori_kode' => 'HNG', 'kategori_nama' => 'Health & Gaming'],       
+        ['kategori_kode' => 'HME', 'kategori_nama' => 'Home & Living'],   
     ];
     DB::table('m_kategori')->insert($data);
 }
