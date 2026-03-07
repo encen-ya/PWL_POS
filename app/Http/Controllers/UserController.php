@@ -10,20 +10,17 @@ class UserController extends Controller
 {
  public function index()
 {
-    // Langkah A: Tambah data baru (Insert) agar ada data 'customer-1'
+    
     UserModel::create([
-        'username' => 'customer-1',
-        'nama' => 'Pelanggan Baru',
-        'password' => Hash::make('12345'),
-        'level_id' => 3, // Staff/Kasir
+        'level_id' => 2,
+        'username' => 'manager_tiga',
+        'nama' => 'Manager-3',
+        'password' => Hash::make('12345')
     ]);
 
-    // Langkah B: Update data yang baru dibuat tadi
-    UserModel::where('username', 'customer-1')->update([
-        'nama' => 'Pelanggan Pertama',
+    UserModel::where('username', 'manager_tiga')->update([
+        'nama' => 'Manager-3',
     ]);
-
-    // Langkah C: Tampilkan semua data
     $user = UserModel::all();
     return view('user', ['data' => $user]);
 }
